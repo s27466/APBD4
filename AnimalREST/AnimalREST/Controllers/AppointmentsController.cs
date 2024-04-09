@@ -21,6 +21,17 @@ public class AppointmentsController : ControllerBase
         return Ok(_appointments);
     }
     
+    [HttpGet("{Id:int}")]
+    public IActionResult GetAppointmentsByAnimal(int Id)
+    {
+        var appointmentsForAnimal = _appointments.Where(appointment => appointment.Animal.Id == Id).ToList();
+        if (appointmentsForAnimal.Count == 0)
+        {
+            return NotFound($"No appointments found for animal with ID {Id}");
+        }
+        return Ok(appointmentsForAnimal);
+    }
+    
     [HttpPost]
     public IActionResult CreateAppointment(Appointment appointment)
     {
