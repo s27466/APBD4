@@ -7,7 +7,7 @@ namespace AnimalREST.Controllers;
 [ApiController]
 public class AnimalsController : ControllerBase
 {
-    private static readonly List<Animal> _animals = new ()
+    public static readonly List<Animal> _animals = new ()
     {
         new Animal { Id = 1, Name = "Katsu", Category = "Cat", Mass = 4.5f, FurColor = "Orange" },
         new Animal { Id = 2, Name = "Buddy", Category = "Dog", Mass = 10.2f, FurColor = "Brown" },
